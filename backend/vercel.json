@@ -25,6 +25,7 @@
   ],
   "env": {
     "MONGO_URI": "@MONGO_URI",
-    "PORT": "3000"
+    "PORT": "3000",
+        "FRONTEND_URL": "https://client-project-manager.vercel.app"
   }
 }

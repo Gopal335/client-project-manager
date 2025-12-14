@@ -14,7 +14,10 @@ const app = express();
 const port = process.env.PORT || 5000;
 const mongoUri = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/flipr";
 
-app.use(cors());
+app.use(cors({
+  origin: process.env.FRONTEND_URL || "http://localhost:5173",
+  credentials: true,
+})
 app.use(express.json({ limit: "2mb" }));
 
 app.get("/", (_req, res) => {
@@ -38,4 +41,6 @@ mongoose
     console.error("Mongo connection error", err.message);
     process.exit(1);
   });
+
+  module.exports = app;
 
